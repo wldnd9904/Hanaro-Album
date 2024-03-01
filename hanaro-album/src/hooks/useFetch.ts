@@ -1,10 +1,15 @@
 import { useEffect, useState } from "react";
 
-export function useFetch<T>(url: string) {
-  const [isLoading, setIsLoading] = useState(true);
-  const [data, setData] = useState<T>();
+export function useFetchTrigger<T>() {
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string>("");
+  const [url, setUrl] = useState<string>("");
+  const [data, setData] = useState<T>();
+
   useEffect(() => {
+    if (!url) return;
+    console.log(`fetch: ${url}`);
+    setIsLoading(true);
     const controller = new AbortController();
     const { signal } = controller;
     (async () => {
@@ -16,6 +21,7 @@ export function useFetch<T>(url: string) {
         setError("");
       } catch (error) {
         if (error instanceof Error) setError(error.message);
+        setIsLoading(false);
       } finally {
         setIsLoading(false);
       }
@@ -27,5 +33,6 @@ export function useFetch<T>(url: string) {
     data: data,
     error: error,
     isLoading: isLoading,
+    trigger: setUrl,
   };
 }
