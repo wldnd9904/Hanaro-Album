@@ -12,7 +12,7 @@ type SessionContextProp = {
   set: (session: Session) => void;
 };
 
-const SKEY = "session";
+const SKEY = "JiungHanaroAlbumSession";
 const BLANKFUNC = () => {};
 const DefaultSession: Session = {
   userId: -1,
