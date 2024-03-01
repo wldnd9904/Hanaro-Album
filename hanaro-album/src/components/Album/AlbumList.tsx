@@ -29,14 +29,15 @@ function AlbumList() {
         </MyButton>
       </HStack>
       <ul>
-        {Object.keys(albums).map((id) => (
-          <AlbumItem
-            key={id}
-            {...albums[+id]}
-            isSelected={+id == selectedId}
-            onClick={selectAlbum}
-          />
-        ))}
+        {albums &&
+          Object.keys(albums).map((id) => (
+            <AlbumItem
+              key={id}
+              {...albums[+id]}
+              isSelected={+id == selectedId}
+              onClick={selectAlbum}
+            />
+          ))}
       </ul>
     </VStack>
   );

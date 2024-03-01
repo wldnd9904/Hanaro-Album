@@ -20,6 +20,7 @@ function App() {
     <VStack className="shadowed rounded-xl mx-auto my-4 !w-5/6 font-bold">
       <VStack className="min-h-24 w-full pb-4">
         <Routes>
+          <Route path="/" element={<Login />} />
           <Route path="/login" element={<Login />} />
           <Route path="/album" element={<AlbumLayout />}>
             <Route index element={<AlbumList />} />

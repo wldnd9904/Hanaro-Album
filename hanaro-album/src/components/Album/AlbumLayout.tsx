@@ -19,9 +19,8 @@ function AlbumLayout() {
     [selectedId]
   );
 
-  const selectedAlbum: AlbumType | undefined = albumId
-    ? albums[+albumId]
-    : undefined;
+  const selectedAlbum: AlbumType | undefined =
+    albumId && albums ? albums[+albumId] : undefined;
 
   const {
     data: albumData,
