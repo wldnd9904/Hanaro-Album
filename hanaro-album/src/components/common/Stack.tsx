@@ -1,5 +1,4 @@
 import { HTMLAttributes, PropsWithChildren } from "react";
-
 interface StackProps extends HTMLAttributes<HTMLDivElement> {
   rotated?: boolean;
 }
@@ -9,11 +8,14 @@ export const VStack = (props: PropsWithChildren<StackProps>) => {
   return (
     <div
       {...attributes}
-      className={`flex flex-${rotated ? "row" : "col"} items-center gap-1 ${className}`}
+      className={`flex ${rotated ? "flex-row h-full" : "flex-col w-full"} items-center gap-1 ${className}`}
     >
       {children}
     </div>
   );
 };
+
 export const HStack = (props: PropsWithChildren<StackProps>) =>
   VStack({ ...props, rotated: !props.rotated });
+
+export const Spacer = () => <div className="flex-grow" />;
