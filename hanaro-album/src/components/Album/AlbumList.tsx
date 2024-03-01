@@ -7,7 +7,7 @@ type AlbumsContextType = {
   albums: AlbumDict;
   isAlbumsLoading: boolean;
   albumsError: string;
-  selectedId: number;
+  selectedId: number | null;
   selectAlbum: (id: number) => void;
 };
 
